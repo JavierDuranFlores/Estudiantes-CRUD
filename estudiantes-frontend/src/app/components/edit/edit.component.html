@@ -1,0 +1,72 @@
+<form class="container-fluid" nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <nz-form-item class="row">
+        
+
+            <nz-form-label class="col-4" nzRequired>Nombre</nz-form-label>
+            
+            <nz-form-control class="col-8 mi-input" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="userErrorTpl">
+                <input nz-input formControlName="nombre" placeholder="Nombre del estudiante" />
+                <ng-template #userErrorTpl let-control>
+                    <!--
+                        @if (control.errors?.['required']) {
+                            Please input your username!
+                        }
+                        @if (control.errors?.['duplicated']) {
+                            The username is redundant!
+                        }
+                    -->
+                </ng-template>
+            </nz-form-control>
+    </nz-form-item>
+
+
+    <nz-form-item class="row">
+        
+
+        <nz-form-label class="col-4" nzRequired>Direccion</nz-form-label>
+        
+        <nz-form-control class="col-8 mi-input" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="userErrorTpl">
+            <input nz-input formControlName="direccion" placeholder="Direccion del estudiante" />
+            <ng-template #userErrorTpl let-control>
+                <!--
+                    @if (control.errors?.['required']) {
+                        Please input your username!
+                    }
+                    @if (control.errors?.['duplicated']) {
+                        The username is redundant!
+                    }
+                -->
+            </ng-template>
+        </nz-form-control>
+</nz-form-item>
+
+<nz-form-item class="row">
+        
+
+    <nz-form-label class="col-4" nzRequired>Telefono</nz-form-label>
+    
+    <nz-form-control class="col-8 mi-input" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="userErrorTpl">
+        <input nz-input formControlName="telefono" placeholder="Telefono del telefono" />
+        <ng-template #userErrorTpl let-control>
+            <!--
+                @if (control.errors?.['required']) {
+                    Please input your username!
+                }
+                @if (control.errors?.['duplicated']) {
+                    The username is redundant!
+                }
+            -->
+        </ng-template>
+    </nz-form-control>
+</nz-form-item>
+
+<div class="row d-flex justify-content-between">
+    <div class="col-4">
+        <button type="submit" nz-button nzType="primary" nzGhost [disabled]="!validateForm.valid">Guardar</button>
+    </div>
+    <div class="col-4">
+        <button nz-button nzType="default" nzDanger nzGhost (click)="cancel($event)">Cerrar</button>
+    </div>
+</div>
+
+</form>

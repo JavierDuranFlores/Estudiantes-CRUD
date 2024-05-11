@@ -1,0 +1,42 @@
+<div class="container table table-sm">
+  <nz-table class="table table-primary table-striped" #basicTable  [nzFrontPagination]="true"
+  [(nzPageSize)]="pageSize"
+  [nzTotal]="total"            
+  [(nzPageIndex)]="pageIndex"      
+  (nzPageIndexChange)="getEstudiantes()"
+  [nzData]="estudiantes"
+    [nzBordered]="true"                        
+  [nzFooter]="totalFooter">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Direccion</th>
+        <th>Telefono</th>
+        <th>ACCIONES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{ data.idEstudiante }}</td>
+        <td>{{ data.nombre }}</td>
+        <td>{{ data.direccion }}</td>
+        <td>
+         {{ data.telefono}}
+        </td>
+        <td>
+          <div class="row">
+            <div class="col-3">
+              <button nz-button nzType="link" (click)="edit(data)"><i nz-icon nzType="edit" nzTheme="outline" style="font-size: 16px; color: #08c;"></i></button>
+            </div>
+            <div class="col-3">
+              <button nz-button nzType="link" (click)="delete(data)"><i nz-icon nzType="delete" nzTheme="outline" style="font-size: 16px; color: rgb(204, 0, 51);"></i></button>
+            </div>
+          </div>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
